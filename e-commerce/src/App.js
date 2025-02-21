@@ -1,11 +1,14 @@
 import './App.css';
 import SignUpForm from './Components/CreateAccount/SignUp';
 import Header from './Components/Header';
+import AboutUs from './Components/Homepage/AboutUs';
 import Cards from './Components/Homepage/Cards';
+import Checkout from './Components/Homepage/Checkout';
 import ContactForm from './Components/Homepage/Contact';
 import ReviewSection from './Components/Homepage/CustomerCard';
 import HeroSection from './Components/Homepage/Hero';
 import ShopByCategory from './Components/Homepage/ShopByCategory';
+import ShoppingCart from './Components/Homepage/ShoppingCart';
 import TouchIn from './Components/Homepage/TouchIn';
 import Footer from './Components/Layout/Footer';
 
@@ -20,7 +23,10 @@ function App() {
     {/* <ContactForm/> */}
     {/* <TouchIn/> */}
     {/* <ShopByCategory/> */}
-    <Footer/>
+    {/* <Footer/> */}
+    {/* <AboutUs/> */}
+    {/* <Checkout/> */}
+    <ShoppingCart/>
     </>
   );
 }

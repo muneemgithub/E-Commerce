@@ -1,3 +1,6 @@
+21/2/2025 (Muneem Ahmed)
+Details: Create AboutUS page and Checkout page and Shoppingcart components using react MUI and tailwind css.
+
 20/2/2025 (Muneem Ahmed)
 Details: Create Footer Conatct page shopbyCategory Cards TouchIN Page and CreateAccount page Modifaction on Custome cards usinG React MUI and tailwind css 
 
