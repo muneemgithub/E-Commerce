@@ -1,3 +1,6 @@
+22/2/2025 (Muneem Ahmed)
+Details: Create OrderComplete Component, CheckOut Component and Collection component and Create Cards on home page and data.js data in file and Layout.
+
 21/2/2025 (Muneem Ahmed)
 Details: Create AboutUS page and Checkout page and Shoppingcart components using react MUI and tailwind css.
 
