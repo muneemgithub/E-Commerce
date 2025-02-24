@@ -1,4 +1,4 @@
-import CollectionPage from "./Components/Homepage/CollectionsPage.jsx";
+import ProgressChart from "./Components/Dashboard/ProgressChart.jsx";
 import Home from "./Components/Homepage/Home.jsx";
 
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       {/* <Home /> */}
-      <CollectionPage/>
+      <ProgressChart/>
     </>
   );
 }

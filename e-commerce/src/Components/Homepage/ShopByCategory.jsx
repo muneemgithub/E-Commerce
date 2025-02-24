@@ -47,7 +47,7 @@ const ShopByCategory = () => {
           width: "474px",
           height: "25px",
           marginRight: "770px",
-          display: { xs: "none", sm: "none", md: "block" }
+          display: { xs: "none", sm: "none", md: "block" },
         }}
       />
 
@@ -56,7 +56,7 @@ const ShopByCategory = () => {
         src={lineTwo}
         alt="lineTwo"
         sx={{
-          display: { xs: "none", sm: "none", md: "block" }
+          display: { xs: "none", sm: "none", md: "block" },
         }}
       />
 
@@ -88,7 +88,7 @@ const ShopByCategory = () => {
                 width: "258.33px",
                 height: "305.86px",
                 borderRadius: "20px",
-                marginTop:"50px",
+                marginTop: "50px",
                 padding: "8px 17px",
                 backgroundImage: `url(${category.image})`,
                 backgroundSize: "cover",
@@ -97,14 +97,17 @@ const ShopByCategory = () => {
                 justifyContent: "center",
                 alignItems: "flex-end",
                 "&:hover .category-overlay": { opacity: 1 },
-                "&:hover .category-button": { transform: "translateY(0)", opacity: 1 },
+                "&:hover .category-button": {
+                  transform: "translateY(0)",
+                  opacity: 1,
+                },
               }}
             >
               {/* Dark Overlay */}
               <Box className="category-overlay absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 opacity-0" />
 
               {/* Button */}
-              <Box className="category-button mb-4 w-full flex justify-center transform translate-y-4 opacity-0 transition-all duration-300">
+              <Box className="category-button mb-4 w-full flex justify-center transform translate-y-0 opacity-1 transition-all duration-300">
                 <button
                   className="flex items-center justify-center rounded-full hover:bg-opacity-90 transition-colors"
                   style={{
@@ -112,7 +115,8 @@ const ShopByCategory = () => {
                     height: "53px",
                     borderRadius: "10px",
                     padding: "0",
-                    background: "linear-gradient(90deg, #197AED, #E3EFFD, #3A5E6E)",
+                    background:
+                      "linear-gradient(90deg, #197AED, #E3EFFD, #3A5E6E)",
                     backdropFilter: "blur(4px)",
                   }}
                 >
