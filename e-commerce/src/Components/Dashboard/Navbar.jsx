@@ -32,7 +32,7 @@ import ChatImg from "../../Assests/chat.png";
 
 const drawerWidth = 240;
 
-const Layout = ({ children }) => {
+const Navbar = ({ children }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -247,4 +247,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Navbar;

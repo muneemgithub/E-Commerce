@@ -19,7 +19,7 @@ export default function JewelleryFilter() {
   }
 
   return (
-    <div className="p-6 w-100 px-4">
+    <div className="p-6 w-100 px-4 ">
       {/* Buttons */}
       <div className="flex justify-center w-full bg-yellow">
         <Box className="px-10 text-[#775617] w-full max-w-[1200px]">
