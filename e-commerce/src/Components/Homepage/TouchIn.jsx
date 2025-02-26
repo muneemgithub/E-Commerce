@@ -14,17 +14,16 @@ import EmailIcon from "../../Assests/Icon.png";
 
 const TouchIn = () => {
   return (
-    <Container maxWidth="lg" className="py-16">
-     
+    <Container maxWidth="lg" className="py-8 md:py-16">
       {/* Get In Touch Section */}
-      <Box className="text-center mb-12">
+      <Box className="text-center mb-8 md:mb-12">
         <Typography
           variant="h3"
           className="text-[#333] font-serif mb-4 text-center w-full"
           sx={{
-            fontSize: "40px",
+            fontSize: { xs: "32px", md: "40px" }, // Responsive font size
             fontWeight: "400",
-            lineHeight: "48px",
+            lineHeight: { xs: "40px", md: "48px" }, // Responsive line height
             textAlign: "center",
           }}
         >
@@ -36,7 +35,7 @@ const TouchIn = () => {
             variant="body1"
             className="text-gray-600"
             sx={{
-              maxWidth: "455.23px",
+              maxWidth: { xs: "100%", md: "455.23px" }, // Responsive max width
               fontSize: "14px",
               fontWeight: "400",
               lineHeight: "24px",
@@ -51,107 +50,46 @@ const TouchIn = () => {
       </Box>
 
       {/* Contact Info Cards */}
-      <Grid container spacing={4} sx={{ mt: 4 }}> {/* Added marginTop here */}
-  <Grid item xs={12} md={4}>
-    <Paper
-      elevation={0}
-      className="flex flex-col items-center justify-center text-center"
-      sx={{
-        width: "250px",
-        minHeight: "140px",
-        borderRadius: "7px",
-        border: "1px solid #ccc",
-        padding: "31px",
-        backgroundColor: "#F3F3F6",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src={LocationOnIcon}
-        alt="LocationOnIcon"
-        className="text-[#b19777]"
-        sx={{ fontSize: 40, mb: 1 }} 
-      />
-      <Typography variant="h6" sx={{ mb: 1 }}> {/* Added marginBottom */}
-        152 Street 2714 Pakistan
-      </Typography>
-      <Typography variant="body2" className="text-gray-600">
-        Lorem ipsum dolor sit amet viverra
-      </Typography>
-    </Paper>
-  </Grid>
-
-  <Grid item xs={12} md={4}>
-    <Paper
-      elevation={0}
-      className="flex flex-col items-center justify-center text-center"
-      sx={{
-        width: "250px",
-        minHeight: "140px",
-        borderRadius: "7px",
-        border: "1px solid #ccc",
-        padding: "31px",
-        backgroundColor: "#F3F3F6",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src={PhoneIcon}
-        alt="PhoneIcon"
-        className="text-[#b19777]"
-        sx={{ fontSize: 40, mb: 1 }}
-      />
-      <Typography variant="h6" sx={{ mb: 1 }}>
-        152 Street 2714 Pakistan
-      </Typography>
-      <Typography variant="body2" className="text-gray-600">
-        Lorem ipsum dolor sit amet viverra
-      </Typography>
-    </Paper>
-  </Grid>
-
-  <Grid item xs={12} md={4}>
-    <Paper
-      elevation={0}
-      className="flex flex-col items-center justify-center text-center"
-      sx={{
-        width: "250px",
-        minHeight: "140px",
-        borderRadius: "7px",
-        border: "1px solid #ccc",
-        padding: "31px",
-        backgroundColor: "#F3F3F6",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src={EmailIcon}
-        alt="EmailIcon"
-        className="text-[#b19777]"
-        sx={{ fontSize: 40, mb: 1 }}
-      />
-      <Typography variant="h6" sx={{ mb: 1 }}>
-        152 Street 2714 Pakistan
-      </Typography>
-      <Typography variant="body2" className="text-gray-600">
-        Lorem ipsum dolor sit amet viverra
-      </Typography>
-    </Paper>
-  </Grid>
-</Grid>
-
+      <Grid container spacing={4} sx={{ mt: 4 }}>
+        {[
+          { icon: LocationOnIcon, title: "152 Street 2714 Pakistan", description: "Lorem ipsum dolor sit amet viverra" },
+          { icon: PhoneIcon, title: "+92 123 456 7890", description: "Lorem ipsum dolor sit amet viverra" },
+          { icon: EmailIcon, title: "info@example.com", description: "Lorem ipsum dolor sit amet viverra" },
+        ].map((item, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Paper
+              elevation={0}
+              className="flex flex-col items-center justify-center text-center"
+              sx={{
+                width: { xs: "100%", md: "250px" }, // Responsive width
+                minHeight: "140px",
+                borderRadius: "7px",
+                border: "1px solid #ccc",
+                padding: "31px",
+                backgroundColor: "#F3F3F6",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <img
+                src={item.icon}
+                alt={item.title}
+                className="text-[#b19777]"
+                sx={{ fontSize: 40, mb: 1 }}
+              />
+              <Typography variant="h6" sx={{ mb: 1 }}>
+                {item.title}
+              </Typography>
+              <Typography variant="body2" className="text-gray-600">
+                {item.description}
+              </Typography>
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
 
       {/* Contact Form */}
       <Box
@@ -160,7 +98,7 @@ const TouchIn = () => {
           backgroundColor: "white",
           boxShadow: 3, // MUI Shadow
           borderRadius: "10px",
-          p: 4, // Padding
+          p: { xs: 2, md: 4 }, // Responsive padding
           mt: 5, // Margin top
         }}
       >
@@ -169,10 +107,10 @@ const TouchIn = () => {
           className="text-center font-serif"
           sx={{
             color: "#775617",
-            fontSize: "40px",
+            fontSize: { xs: "32px", md: "40px" }, // Responsive font size
             fontWeight: 400,
-            lineHeight: "48px",
-            width: "159.25px",
+            lineHeight: { xs: "40px", md: "48px" }, // Responsive line height
+            width: { xs: "100%", md: "159.25px" }, // Responsive width
             height: "48px",
             margin: "0 auto", // Center align
           }}
@@ -184,7 +122,7 @@ const TouchIn = () => {
           variant="body1"
           className="text-center text-gray-600"
           sx={{
-            width: "741px",
+            width: { xs: "100%", md: "741px" }, // Responsive width
             height: "48px",
             fontSize: "14px",
             fontWeight: 400,
@@ -196,7 +134,7 @@ const TouchIn = () => {
           your problems in a chat with our contact officer.
         </Typography>
 
-        <Box component="form" className="space-y-6">
+        <Box component="form" className="space-y-6 mt-6">
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -205,15 +143,12 @@ const TouchIn = () => {
                 variant="filled"
                 className="bg-gray-50"
                 sx={{
-                  width: "365px",
-                  //   height: "46px",
+                  width: "100%", // Full width on mobile
                   borderRadius: "10px",
-                  padding: "13.5px 16px",
-                  marginLeft: "100px",
                   "& .MuiInputBase-root": {
                     borderRadius: "10px",
                     padding: "13.5px 16px",
-                    backgroundColor: "#F8F8F8", // Optional: Ensures background matches
+                    backgroundColor: "#F8F8F8",
                   },
                 }}
               />
@@ -226,10 +161,8 @@ const TouchIn = () => {
                 variant="filled"
                 className="bg-gray-50"
                 sx={{
-                  width: "365px",
-                  height: "46px",
+                  width: "100%", // Full width on mobile
                   borderRadius: "10px",
-                  padding: "13.5px 16px",
                   "& .MuiInputBase-root": {
                     borderRadius: "10px",
                     padding: "13.5px 16px",
@@ -246,11 +179,8 @@ const TouchIn = () => {
                 variant="filled"
                 className="bg-gray-50"
                 sx={{
-                  width: "760px",
-                  height: "46px",
+                  width: "100%", // Full width on mobile
                   borderRadius: "10px",
-                  marginLeft: "150px",
-                  padding: "13.5px 16px",
                   "& .MuiInputBase-root": {
                     borderRadius: "10px",
                     padding: "13.5px 16px",
@@ -269,12 +199,8 @@ const TouchIn = () => {
                 variant="outlined"
                 className="bg-gray-50"
                 sx={{
-                  width: "760px",
-                  height: "120px",
-                  minHeight: "120px",
-                  marginLeft: "150px",
+                  width: "100%", // Full width on mobile
                   borderRadius: "10px",
-                  padding: "16px",
                   "& .MuiInputBase-root": {
                     borderRadius: "10px",
                     padding: "16px",
@@ -285,20 +211,23 @@ const TouchIn = () => {
             </Grid>
           </Grid>
 
-          <Box className="flex justify-end ">
+          <Box className="flex justify-end">
             <Button
               variant="contained"
               sx={{
-                width: "166px",
-                height: "46px",
+                width: { xs: "100%", sm: "300px" }, // Responsive width
+                height: "60px",
                 borderRadius: "10px",
                 paddingTop: "12.25px",
+                paddingRight: "37px",
+                paddingBottom: "13.75px",
+                paddingLeft: "37px",
                 backgroundColor: "#14274A",
                 "&:hover": {
                   backgroundColor: "#1a3259",
                 },
                 textTransform: "none",
-                marginLeft: "750px",
+                marginLeft: { xs: "0", sm: "auto" }, // Responsive margin
               }}
             >
               Send Message

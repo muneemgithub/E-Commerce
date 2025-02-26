@@ -41,10 +41,11 @@ const Checkoutpage = () => {
 
   return (
     <Box className="p-6 flex flex-col items-center">
-      <Box
+     <Box
         sx={{
           position: "relative",
-          width: { xs: "100%", md: "1214px" },
+          width: "100%",
+          maxWidth: "1214px",
           height: { xs: "auto", md: "542px" },
           backgroundImage: `url(${Herobgimg})`,
           backgroundSize: "cover",
@@ -52,10 +53,9 @@ const Checkoutpage = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          mx: "auto",
         }}
       >
-        {/* Overlay */}
-
         <Container
           maxWidth="lg"
           sx={{
@@ -64,7 +64,7 @@ const Checkoutpage = () => {
             textAlign: "center",
           }}
         >
-          <Box sx={{ maxWidth: "800px", margin: "0 auto" }}>
+          <Box sx={{ maxWidth: "800px", mx: "auto" }}>
             <Typography
               variant="h2"
               sx={{
@@ -74,9 +74,9 @@ const Checkoutpage = () => {
                 lineHeight: { xs: "40px", sm: "50px", md: "60px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "780px" },
-                height: "60px",
-                marginLeft: "-200px",
+                maxWidth: { xs: "100%", md: "780px" },
+                height: "auto",
+                ml: { xs: 0, md: "-200px" },
               }}
             >
               Checkout
@@ -91,9 +91,9 @@ const Checkoutpage = () => {
                 lineHeight: { xs: "28px", sm: "30px", md: "30px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "444px" },
-                height: "120px",
-                margin: "0 auto",
+                maxWidth: { xs: "100%", md: "444px" },
+                height: "auto",
+                mx: "auto",
               }}
             >
               You're Almost There! Secure Your Order with a Smooth & Safe
@@ -524,115 +524,71 @@ const Checkoutpage = () => {
           </Box>
         </Grid>
 
-        {/* Delivery Icons */}
-        <Grid
-          container
-          spacing={2}
-          sx={{
-            marginTop: "20px",
-          }}
-        >
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={DelivertImg} alt="DelivertImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Delivery
-                </Typography>
+         {/* Delivery Icons */}
+<Box display="flex" justifyContent="center" width="100%">
+  <Grid
+    container
+    spacing={2}
+    justifyContent="center"
+    alignItems="center"
+    sx={{
+      width: "100%",
+      maxWidth: "1041px",
+      height: "auto",
+      marginTop: "50px",
+      display: "flex",
+      flexWrap: "wrap",
+    }}
+  >
+    {[
+      { img: DelivertImg, title: "Delivery" },
+      { img: MessageImg, title: "Customer Care" },
+      { img: LockImg, title: "Payment Security" },
+    ].map((item, index) => (
+      <Grid
+        key={index}
+        item
+        xs={12} // 1 per row on mobile
+        sm={6} // 2 per row on tablet
+        md={4} // 3 per row on desktop
+        display="flex"
+        justifyContent="center"
+      >
+        <Card className="h-full">
+          <CardContent className="flex flex-col items-center p-4">
+            <img src={item.img} alt={item.title} />
+            <Typography
+              sx={{
+                fontFamily: "Cormorant Garamond",
+                fontWeight: 700,
+                fontSize: "24px",
+                lineHeight: "28px",
+                textAlign: "center",
+              }}
+            >
+              {item.title}
+            </Typography>
+            <Typography
+              sx={{
+                fontFamily: "Manrope",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "26px",
+                textAlign: "center",
+                width: { xs: "100%", sm: "276px" },
+                height: "52px",
+                color: "gray",
+              }}
+            >
+              Ea esse elit anim commodo laborum pariatur nisi. Voluptate elit d
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    ))}
+  </Grid>
+</Box>
 
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={MessageImg} alt="MessageImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Customer care
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={LockImg} alt="LockImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Payment security
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
       </Grid>
     </Box>
   );

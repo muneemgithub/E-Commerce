@@ -14,8 +14,14 @@ import ProductDetails from "./Components/Homepage/ProductDetail";
 import ShoppingCart from "./Components/Homepage/ShoppingCart";
 import TouchIn from "./Components/Homepage/TouchIn";
 import AdminLayout from "./Components/Layout/AdminLayout";
-import SignUpForm from "./Components/CreateAccount/SignUp";
 import CollectionPage from "./Components/Homepage/Collectionpage";
+import CustomerDashboard from "./Components/Dashboard/CustomerDashboard";
+import EditProduct from "./Components/Dashboard/EditProduct";
+import OrdersTable from "./Components/Dashboard/OrderDashboard";
+import ProductForm from "./Components/Dashboard/ProductDashboard";
+import ProductManagement from "./Components/Dashboard/ProductManagment";
+import ProgressChart from "./Components/Dashboard/ProgressChart";
+import SignUpForm from "./Components/CreateAccount/SignUp";
 
 
 const router = createBrowserRouter([
@@ -70,11 +76,35 @@ const router = createBrowserRouter([
     element: <AdminLayout/>,
     children: [
       {
-        path: "signup",
-        element: <SignUpForm/>,
+        path: "customerdashboard",
+        element: <CustomerDashboard/>
       },
+      {
+        path: "editproduct",
+        element: <EditProduct/>
+      },
+      {
+        path: "orderstable",
+        element: <OrdersTable/>
+      }, 
+      {
+        path: "productform",
+        element: <ProductForm/>
+      },
+      {
+        path: "productmanagement",
+        element: <ProductManagement/>
+      }, 
+      {
+        path: "progresschart",
+        element: <ProgressChart/>
+      }
     ]
-  }
+  },
+  {
+    path: "/createaccount", 
+    element: <SignUpForm />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

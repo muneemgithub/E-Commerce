@@ -1,3 +1,9 @@
+26/2/2025 (Muneem Ahmed)
+Details: Routing is complete modification in dashboard pages and 6 pages fully responsive
+
+25/2/2025 (Muneem Ahmed)
+Details: rotuing and Customer Dashboard and OrderDashboard ProductDashboard ProductManagement and EditProduct Component with Charts
+
 24/2/2025 (Muneem Ahmed)
 Details: Create ProductDetail Component Dashboard sidebar and Header and Create Barchart and UIprogress Chart using react MUI and tailwind 
 

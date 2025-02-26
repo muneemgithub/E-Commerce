@@ -93,6 +93,8 @@ const ShoppingCart = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          marginLeft:"40px",
+          marginTop:"-25px"
         }}
       >
         {/* Overlay */}

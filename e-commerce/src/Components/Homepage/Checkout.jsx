@@ -32,13 +32,12 @@ const Checkout = () => {
   };
 
   return (
-    <Box className="p-6" sx={{
-        marginLeft:"50px"
-    }}>
+    <Box className="p-6 flex flex-col items-center">
       <Box
         sx={{
           position: "relative",
-          width: { xs: "100%", md: "1214px" },
+          width: "100%",
+          maxWidth: "1214px",
           height: { xs: "auto", md: "542px" },
           backgroundImage: `url(${Herobgimg})`,
           backgroundSize: "cover",
@@ -46,10 +45,9 @@ const Checkout = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          mx: "auto",
         }}
       >
-        {/* Overlay */}
-
         <Container
           maxWidth="lg"
           sx={{
@@ -58,7 +56,7 @@ const Checkout = () => {
             textAlign: "center",
           }}
         >
-          <Box sx={{ maxWidth: "800px", margin: "0 auto" }}>
+          <Box sx={{ maxWidth: "800px", mx: "auto" }}>
             <Typography
               variant="h2"
               sx={{
@@ -68,9 +66,9 @@ const Checkout = () => {
                 lineHeight: { xs: "40px", sm: "50px", md: "60px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "780px" },
-                height: "60px",
-                marginLeft: "-200px",
+                maxWidth: { xs: "100%", md: "780px" },
+                height: "auto",
+                ml: { xs: 0, md: "-200px" },
               }}
             >
               Checkout
@@ -85,9 +83,9 @@ const Checkout = () => {
                 lineHeight: { xs: "28px", sm: "30px", md: "30px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "444px" },
-                height: "120px",
-                margin: "0 auto",
+                maxWidth: { xs: "100%", md: "444px" },
+                height: "auto",
+                mx: "auto",
               }}
             >
               You're Almost There! Secure Your Order with a Smooth & Safe
@@ -105,10 +103,11 @@ const Checkout = () => {
             sx={{
               fontFamily: "Libre Bodoni",
               fontWeight: 400,
-              fontSize: "48px",
-              lineHeight: "60px",
+              fontSize: { xs: "24px", sm: "32px", md: "48px" },
+              lineHeight: "58px",
               color: "#775617",
-              width: "497px",
+              width: "100%",
+            maxWidth: "100%",
               height: "60px",
             }}
           >
@@ -126,28 +125,25 @@ const Checkout = () => {
             }}
           />
 
-          <Box className="space-y-4">
+          <Box sx={{ spaceY: 4 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <Typography
                   sx={{
                     fontFamily: "Poppins",
                     fontWeight: 400,
-                    fontSize: "32px",
-                    lineHeight: "48px",
+                    fontSize: { xs: "20px", sm: "24px", md: "32px" }, // Responsive text size
+                    lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                     color: "#000",
-                    width: "186px",
-                    height: "48px",
-                    marginBottom: "8px",
+                    mb: 1,
                   }}
                 >
                   First Name*
                 </Typography>
-
                 <TextField
                   fullWidth
                   required
-                  placeholder="Ex.Jhon"
+                  placeholder="Ex. John"
                   variant="outlined"
                 />
               </Grid>
@@ -156,12 +152,10 @@ const Checkout = () => {
                   sx={{
                     fontFamily: "Poppins",
                     fontWeight: 400,
-                    fontSize: "32px",
-                    lineHeight: "48px",
+                    fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                    lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                     color: "#000",
-                    width: "186px",
-                    height: "48px",
-                    marginBottom: "8px",
+                    mb: 1,
                   }}
                 >
                   Last Name*
@@ -169,7 +163,7 @@ const Checkout = () => {
                 <TextField
                   fullWidth
                   required
-                  placeholder="Ex.Doe"
+                  placeholder="Ex. Doe"
                   variant="outlined"
                 />
               </Grid>
@@ -179,24 +173,22 @@ const Checkout = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
-              Company Name(Optional)
+              Company Name (Optional)
             </Typography>
             <TextField
               fullWidth
               placeholder="Enter Company Name"
               variant="outlined"
               sx={{
-                
                 height: "68px",
                 borderRadius: "12px",
-                padding: "16px 1px", // Top, Bottom, Left, Right Padding
+                p: "16px 1px",
               }}
             />
 
@@ -205,11 +197,10 @@ const Checkout = () => {
                 sx={{
                   fontFamily: "Poppins",
                   fontWeight: 400,
-                  fontSize: "32px",
-                  lineHeight: "48px",
+                  fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                  lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                   color: "#000",
-                  // width: "186px",
-                  height: "48px",
+                  mb: 1,
                 }}
               >
                 Country Name*
@@ -225,81 +216,81 @@ const Checkout = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
               Street Address*
             </Typography>
             <TextField
               fullWidth
-              label="Street Address"
               required
               placeholder="Enter Street Address"
               variant="outlined"
             />
 
-            <FormControl fullWidth>
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontWeight: 400,
-                  fontSize: "32px",
-                  lineHeight: "48px",
-                  color: "#000",
-                  // width: "186px",
-                  height: "48px",
-                }}
-              >
-                City*
-              </Typography>
-              <Select label="City" required defaultValue="">
-                <MenuItem value="NY">New York</MenuItem>
-                <MenuItem value="LA">Los Angeles</MenuItem>
-                <MenuItem value="CH">Chicago</MenuItem>
-              </Select>
-            </FormControl>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <Typography
+                    sx={{
+                      fontFamily: "Poppins",
+                      fontWeight: 400,
+                      fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                      lineHeight: { xs: "30px", sm: "36px", md: "48px" },
+                      color: "#000",
+                      mb: 1,
+                    }}
+                  >
+                    City*
+                  </Typography>
+                  <Select label="City" required defaultValue="">
+                    <MenuItem value="NY">New York</MenuItem>
+                    <MenuItem value="LA">Los Angeles</MenuItem>
+                    <MenuItem value="CH">Chicago</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
 
-            <FormControl fullWidth>
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontWeight: 400,
-                  fontSize: "32px",
-                  lineHeight: "48px",
-                  color: "#000",
-                  // width: "186px",
-                  height: "48px",
-                }}
-              >
-                State*
-              </Typography>
-              <Select label="State" required defaultValue="">
-                <MenuItem value="NY">New York</MenuItem>
-                <MenuItem value="CA">California</MenuItem>
-                <MenuItem value="TX">Texas</MenuItem>
-              </Select>
-            </FormControl>
+              <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <Typography
+                    sx={{
+                      fontFamily: "Poppins",
+                      fontWeight: 400,
+                      fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                      lineHeight: { xs: "30px", sm: "36px", md: "48px" },
+                      color: "#000",
+                      mb: 1,
+                    }}
+                  >
+                    State*
+                  </Typography>
+                  <Select label="State" required defaultValue="">
+                    <MenuItem value="NY">New York</MenuItem>
+                    <MenuItem value="CA">California</MenuItem>
+                    <MenuItem value="TX">Texas</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
 
             <Typography
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
               Zip Code*
             </Typography>
             <TextField
               fullWidth
-              label="Zip Code"
               required
               placeholder="Enter Zip Code"
               variant="outlined"
@@ -309,18 +300,16 @@ const Checkout = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
               Phone Number*
             </Typography>
             <TextField
               fullWidth
-              label="Phone Number"
               required
               placeholder="Enter Phone Number"
               variant="outlined"
@@ -330,18 +319,16 @@ const Checkout = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
               Email*
             </Typography>
             <TextField
               fullWidth
-              label="Email"
               required
               type="email"
               placeholder="Enter Email Address"
@@ -352,19 +339,33 @@ const Checkout = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "48px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" },
+                lineHeight: { xs: "30px", sm: "36px", md: "48px" },
                 color: "#000",
-                // width: "186px",
-                height: "48px",
+                mb: 1,
               }}
             >
               Delivery Address*
             </Typography>
-            <Box className="flex gap-4 items-center">
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" }, // Mobile pe stack, tablet pe side-by-side
+                gap: 2,
+                alignItems: { xs: "stretch", sm: "center" }, // Mobile pe full-width buttons
+              }}
+            >
               <Button
                 variant="outlined"
-                className="border-gray-300 flex items-center gap-2"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  justifyContent: "center",
+                  width: { xs: "100%", sm: "auto" }, // Mobile pe full width, tablet pe auto
+                  fontSize: { xs: "14px", sm: "16px" }, // Responsive font size
+                  py: { xs: 1, sm: 1.5 }, // Responsive padding
+                }}
               >
                 <Radio size="small" color="primary" />
                 Same as Shipping Address
@@ -372,7 +373,15 @@ const Checkout = () => {
 
               <Button
                 variant="outlined"
-                className="border-gray-300 flex items-center gap-2"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  justifyContent: "center",
+                  width: { xs: "100%", sm: "auto" },
+                  fontSize: { xs: "14px", sm: "16px" },
+                  py: { xs: 1, sm: 1.5 },
+                }}
               >
                 <Radio size="small" color="primary" />
                 Use Different Billing Address
@@ -382,53 +391,69 @@ const Checkout = () => {
         </Grid>
         {/* Order Summary */}
         <Grid item xs={12} md={4}>
-          <Box className="bg-gray-50 p-6 rounded-lg">
+          <Box
+            sx={{
+              backgroundColor: "#f9fafb",
+              p: { xs: 3, sm: 4, md: 6 }, // Responsive padding
+              borderRadius: "12px",
+            }}
+          >
             <Typography
               variant="h6"
               sx={{
                 fontFamily: "Inter",
                 fontWeight: 700,
-                fontSize: "32px",
-                lineHeight: "38.73px",
-                letterSpacing: "0%",
-                color: "#000", // Aap color adjust kar sakte hain
-                width: "267px",
-                height: "39px",
+                fontSize: { xs: "20px", sm: "24px", md: "32px" }, // Responsive font size
+                lineHeight: { xs: "26px", sm: "30px", md: "38.73px" },
+                color: "#000",
+                mb: 2,
               }}
             >
               Order Summary
             </Typography>
 
-            <Box className="space-y-3">
-              <Box className="flex justify-between">
+            <Box sx={{ display: "grid", gap: 2 }}>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography>Items ({orderSummary.items})</Typography>
                 <Typography>${orderSummary.subTotal.toFixed(2)}</Typography>
               </Box>
-              <Box className="flex justify-between">
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography>Shipping</Typography>
                 <Typography>${orderSummary.shipping.toFixed(2)}</Typography>
               </Box>
-              <Box className="flex justify-between">
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography>Taxes</Typography>
                 <Typography>${orderSummary.taxes.toFixed(2)}</Typography>
               </Box>
-              <Box className="flex justify-between">
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography>Coupon</Typography>
-                <Typography className="text-red-500">
-                  ${orderSummary.coupon.toFixed(2)}
+                <Typography sx={{ color: "red" }}>
+                  -${orderSummary.coupon.toFixed(2)}
                 </Typography>
               </Box>
-              <Divider className="my-2" />
-              <Box className="flex justify-between font-bold">
+              <Divider sx={{ my: 2 }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontWeight: "bold",
+                }}
+              >
                 <Typography>Total</Typography>
                 <Typography>${orderSummary.total.toFixed(2)}</Typography>
               </Box>
             </Box>
 
             <Button
-              variant="outlined"
+              variant="contained"
               fullWidth
-              className="mt-6 bg-[#1a237e] hover:bg-[#0d47a1]"
+              sx={{
+                mt: 3,
+                backgroundColor: "#1a237e",
+                "&:hover": { backgroundColor: "#0d47a1" },
+                fontSize: { xs: "14px", sm: "16px", md: "18px" }, // Responsive button text
+                py: { xs: 1, sm: 1.5 }, // Responsive button padding
+              }}
             >
               Proceed to Checkout
             </Button>
@@ -436,114 +461,70 @@ const Checkout = () => {
         </Grid>
 
         {/* Delivery Icons */}
-        <Grid
-          container
-          spacing={2}
-          sx={{
-            marginTop: "20px",
-          }}
-        >
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={DelivertImg} alt="DelivertImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Delivery
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
+        <Box display="flex" justifyContent="center" width="100%">
+          <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+              width: "100%",
+              maxWidth: "1041px",
+              height: "auto",
+              marginTop: "50px",
+              display: "flex",
+              flexWrap: "wrap",
+            }}
+          >
+            {[
+              { img: DelivertImg, title: "Delivery" },
+              { img: MessageImg, title: "Customer Care" },
+              { img: LockImg, title: "Payment Security" },
+            ].map((item, index) => (
+              <Grid
+                key={index}
+                item
+                xs={12} // 1 per row on mobile
+                sm={6} // 2 per row on tablet
+                md={4} // 3 per row on desktop
+                display="flex"
+                justifyContent="center"
+              >
+                <Card className="h-full">
+                  <CardContent className="flex flex-col items-center p-4">
+                    <img src={item.img} alt={item.title} />
+                    <Typography
+                      sx={{
+                        fontFamily: "Cormorant Garamond",
+                        fontWeight: 700,
+                        fontSize: "24px",
+                        lineHeight: "28px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: "Manrope",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        lineHeight: "26px",
+                        textAlign: "center",
+                        width: { xs: "100%", sm: "276px" },
+                        height: "52px",
+                        color: "gray",
+                      }}
+                    >
+                      Ea esse elit anim commodo laborum pariatur nisi. Voluptate
+                      elit d
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={MessageImg} alt="MessageImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Customer care
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={4}>
-            <Card className="h-full shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="flex flex-col items-center p-4">
-                <img src={LockImg} alt="LockImg" />
-                <Typography
-                  sx={{
-                    fontFamily: "Cormorant Garamond",
-                    fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                  }}
-                >
-                  Payment security
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Manrope",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
-                    textAlign: "center",
-                    width: "276px",
-                    height: "52px",
-                    color: "gray",
-                  }}
-                >
-                  Ea esse elit anim commodo laborum pariatur nisi. Voluptate
-                  elit d
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        </Box>
       </Grid>
     </Box>
   );

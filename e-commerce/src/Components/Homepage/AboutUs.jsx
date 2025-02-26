@@ -16,17 +16,18 @@ import lineTwo from "../../Assests/signupformunderline.png";
 import UncompromisingImg from "../../Assests/Uncompromising.png";
 import EthicalImg from "../../Assests/Ethical.png";
 import CustomerImg from "../../Assests/Customer.png";
-import cardLine from "../../Assests/herosection line.png"
+import cardLine from "../../Assests/herosection line.png";
 
 const AboutUs = () => {
   return (
     <Box className="w-full">
       {/* Hero Section */}
       <Box
-        className="relative h-[500px] text-white flex items-center justify-center bg-cover bg-center"
+        className="relative h-[500px] text-white flex items-center justify-center bg-cover bg-center px-4"
         style={{
           backgroundImage: `url(${Herobgimg})`,
-          width: "1240px",
+          maxWidth: "1240px", // Fixed width on large screens
+          width: "100%", // Responsive for smaller screens
           margin: "0 auto",
         }}
       >
@@ -34,31 +35,28 @@ const AboutUs = () => {
         <Box className="absolute inset-0 bg-[#0F3460C9]"></Box>
 
         <Container maxWidth="lg" className="relative z-10">
-          <Box className="max-w-2xl">
+          <Box className="max-w-2xl text-center mx-auto">
+            {/* Heading */}
             <Typography
               variant="h2"
-              className="font-['Libre_Bodoni'] font-medium text-[64px] leading-[80px] tracking-normal"
-              style={{
-                width: "656px",
-                height: "160px",
-                left: "30px",
-                position: "absolute",
-                top: "-150px",
-              }}
+              className="font-['Libre_Bodoni'] font-medium text-[32px] sm:text-[48px] lg:text-[64px] leading-[40px] sm:leading-[60px] lg:leading-[80px] tracking-normal"
             >
               Crafting Elegance One Piece at a Time
             </Typography>
-            <img src={heroline} alt="heroline" />
+
+            {/* Image */}
+            <Box className="flex justify-center my-2">
+              <img
+                src={heroline}
+                alt="heroline"
+                className="w-1/2 sm:w-1/3 lg:w-[300px]"
+              />
+            </Box>
+
+            {/* Subtitle */}
             <Typography
               variant="subtitle1"
-              className="font-['Libre_Bodoni'] font-normal text-[32px] leading-[40px] tracking-normal"
-              style={{
-                width: "617px",
-                height: "40px",
-                position: "absolute",
-                top: "20px",
-                left: "515px",
-              }}
+              className="font-['Libre_Bodoni'] font-normal text-[16px] sm:text-[24px] lg:text-[32px] leading-[20px] sm:leading-[30px] lg:leading-[40px] tracking-normal"
             >
               Timeless Elegance Crafted for Every Story
             </Typography>
@@ -121,14 +119,14 @@ const AboutUs = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 500,
-                fontSize: "40px",
-                lineHeight: "60px",
                 color: "#775617",
+                fontSize: { xs: "24px", sm: "32px", md: "40px" }, // Responsive font size
+                lineHeight: { xs: "36px", sm: "50px", md: "60px" }, // Responsive line height
+                textAlign: { xs: "center", md: "left" }, // Center on small screens, left on md+
+                position: { lg: "absolute" }, // Absolute only on LG screens
                 width: "247px",
-                height: "60px",
-                position: "absolute",
-                left: "700px",
-                marginTop: "-100px",
+                mx: { xs: "auto", lg: "0" },
+                top: { lg: "950px" },
               }}
             >
               Our Journey
@@ -139,14 +137,16 @@ const AboutUs = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 500,
-                fontSize: "20px",
-                lineHeight: "30px",
-                letterSpacing: "0%",
                 color: "gray",
-                width: "564px",
-                height: "390px",
-                position: "absolute",
-                left: "669px",
+                fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "20px" }, // Responsive font size
+                lineHeight: { xs: "24px", sm: "28px", md: "30px" }, // Adjusted line height
+                width: { xs: "90%", sm: "80%", md: "600px", lg: "564px" }, // Adjust width
+                height: "auto", // Remove fixed height for better responsiveness
+                textAlign: { xs: "center", md: "left" }, // Center on small screens
+                position: { lg: "absolute" }, // Absolute only on LG screens
+                left: { lg: "669px" }, // Positioning only for LG
+                mx: { xs: "auto", lg: "0" }, // Center text in small screens
+                mt: { xs: "10px", md: "0" }, // Adjust margin-top for small screens
               }}
             >
               Celestial Jewels was crafted from passion to create true beauty in
@@ -217,13 +217,14 @@ const AboutUs = () => {
             sx={{
               fontFamily: "Poppins",
               fontWeight: 400,
-              fontSize: "24px",
-              lineHeight: "36px",
-              letterSpacing: "0%",
-              width: "896px",
-              height: "108px",
-              position: "relative",
               color: "#77561799",
+              fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "24px" }, // Responsive font size
+              lineHeight: { xs: "26px", sm: "30px", md: "32px", lg: "36px" }, // Adjusted line height
+              width: { xs: "90%", sm: "80%", md: "700px", lg: "896px" }, // Responsive width
+              height: "auto", // Remove fixed height for better responsiveness
+              textAlign: { xs: "center", md: "left" }, // Center text in small screens
+              position: "relative", // Keep it relative for flexibility
+              mx: "auto", // Center on small screens
             }}
           >
             At Celestia Jewels, our mission is to create exquisite, high-quality
@@ -318,13 +319,13 @@ const AboutUs = () => {
               sx={{
                 fontFamily: "Poppins",
                 fontWeight: 500,
-                fontSize: { xs: "32px", sm: "40px", md: "48px" },
-                lineHeight: { xs: "40px", sm: "50px", md: "72px" },
-                textAlign: { xs: "center", md: "left" },
+                fontSize: { xs: "32px", sm: "40px", md: "48px", lg: "56px" }, // Responsive font size
+                lineHeight: { xs: "40px", sm: "50px", md: "72px" }, // Responsive line height
+                textAlign: { xs: "center", md: "left" }, // Mobile par center, lg par left
                 color: "#775617",
-                width: { xs: "100%", md: "822px" },
+                width: { xs: "90%", md: "822px" }, // Mobile par full width, lg par fixed
                 mb: 2,
-                marginLeft: "100px",
+                mx: { xs: "auto", md: "100px" }, // Mobile par center, md par left shift
               }}
             >
               Craftsmanship & Quality
