@@ -76,16 +76,12 @@ const ShoppingCart = () => {
   const total = subtotal + shipping + taxes - discount;
 
   return (
-    <div
-      className="p-6"
-      sx={{
-        marginLeft: "50px",
-      }}
-    >
+    <div className="p-6 flex flex-col items-center">
       <Box
         sx={{
           position: "relative",
-          width: { xs: "100%", md: "1214px" },
+          width: "100%",
+          maxWidth: "1214px",
           height: { xs: "auto", md: "542px" },
           backgroundImage: `url(${Herobgimg})`,
           backgroundSize: "cover",
@@ -93,12 +89,9 @@ const ShoppingCart = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginLeft:"40px",
-          marginTop:"-25px"
+          mx: "auto",
         }}
       >
-        {/* Overlay */}
-
         <Container
           maxWidth="lg"
           sx={{
@@ -107,7 +100,7 @@ const ShoppingCart = () => {
             textAlign: "center",
           }}
         >
-          <Box sx={{ maxWidth: "800px", margin: "0 auto" }}>
+          <Box sx={{ maxWidth: "800px", mx: "auto" }}>
             <Typography
               variant="h2"
               sx={{
@@ -117,9 +110,9 @@ const ShoppingCart = () => {
                 lineHeight: { xs: "40px", sm: "50px", md: "60px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "780px" },
-                height: "60px",
-                marginLeft: "-200px",
+                maxWidth: { xs: "100%", md: "780px" },
+                height: "auto",
+                ml: { xs: 0, md: "-200px" },
               }}
             >
               Shopping Cart
@@ -134,9 +127,9 @@ const ShoppingCart = () => {
                 lineHeight: { xs: "28px", sm: "30px", md: "30px" },
                 color: "#fff",
                 textAlign: "center",
-                width: { xs: "100%", md: "444px" },
-                height: "120px",
-                margin: "0 auto",
+                maxWidth: { xs: "100%", md: "444px" },
+                height: "auto",
+                mx: "auto",
               }}
             >
               Your handpicked selections are waiting! Make sure everything looks
@@ -148,22 +141,26 @@ const ShoppingCart = () => {
 
       <div
         className="w-[741px] h-[83px] rounded-[12px] bg-[#8B5E34] text-white 
-             flex justify-between items-center px-[71px] py-[24px] gap-1 mt-5"
+  flex justify-between items-center px-[71px] py-[24px] gap-1 mt-5 
+  max-md:w-full max-md:h-auto max-md:flex-wrap max-md:justify-center max-md:gap-4"
       >
-        <Typography>Product</Typography>
-        <Typography>Price</Typography>
-        <Typography>Quantity</Typography>
-        <Typography>Subtotal</Typography>
+        <Typography className="text-sm md:text-base">Product</Typography>
+        <Typography className="text-sm md:text-base">Price</Typography>
+        <Typography className="text-sm md:text-base">Quantity</Typography>
+        <Typography className="text-sm md:text-base">Subtotal</Typography>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-5">
         <div className="lg:col-span-2">
           <Paper className="mb-4">
             {products.map((product) => (
               <div
                 key={product.id}
-                className="grid grid-cols-4 gap-4 p-4 items-center border-b"
+                className="grid grid-cols-4 gap-4 p-4 items-center border-b 
+        max-md:grid-cols-2 max-sm:grid-cols-1 max-md:gap-6 max-md:text-center"
               >
-                <div className="flex items-center gap-2">
+                {/* Product Image & Name */}
+                <div className="flex items-center gap-2 max-sm:flex-col max-sm:items-center">
                   <IconButton
                     size="small"
                     onClick={() => removeItem(product.id)}
@@ -185,60 +182,36 @@ const ShoppingCart = () => {
                   </div>
                 </div>
 
-                <Typography>${product.price.toFixed(2)}</Typography>
+                {/* Price */}
+                <Typography className="max-md:text-center">
+                  ${product.price.toFixed(2)}
+                </Typography>
 
+                {/* Quantity Selector */}
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "8px",
-                    width: "144px",
-                    height: "45px",
-                    borderRadius: "12px",
-                    border: "1px solid #ccc",
-                    padding: "6px 8px",
-                  }}
+                  className="flex items-center justify-center gap-2 
+          w-[144px] h-[45px] rounded-[12px] border border-gray-300 p-2
+          max-sm:w-full max-sm:h-auto"
                 >
-                  {/* Decrease Quantity */}
                   <IconButton
                     size="small"
                     onClick={() => updateQuantity(product.id, -1)}
-                    sx={{
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
                   >
                     <RemoveIcon sx={{ fontSize: "20px" }} />
                   </IconButton>
-
-                  {/* Quantity Text */}
                   <Typography sx={{ fontSize: "16px", fontWeight: 500 }}>
                     {product.quantity}
                   </Typography>
-
-                  {/* Increase Quantity */}
                   <IconButton
                     size="small"
                     onClick={() => updateQuantity(product.id, 1)}
-                    sx={{
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
                   >
                     <AddIcon sx={{ fontSize: "20px" }} />
                   </IconButton>
                 </div>
 
-                <Typography>
+                {/* Subtotal */}
+                <Typography className="max-md:text-center">
                   ${(product.price * product.quantity).toFixed(2)}
                 </Typography>
               </div>

@@ -1,3 +1,6 @@
+27/2/2025 (Muneem Ahmed)
+Details: Homepage fully resposnive and remaining pages responsive and modification done
+
 26/2/2025 (Muneem Ahmed)
 Details: Routing is complete modification in dashboard pages and 6 pages fully responsive
 

@@ -132,14 +132,15 @@ const ProductDetails = () => {
       <Grid container spacing={8}>
         {/* Left - Image Gallery */}
         <Grid item xs={12} md={6} className="relative">
-          <Box className="sticky">
+          <Box className="sticky flex flex-col md:flex-row items-center md:items-start gap-4">
             {/* Thumbnail Images */}
             <Box
-              className={`flex gap-2 ${
-                window.innerWidth < 768
-                  ? "flex-row justify-center mt-4 relative"
-                  : "flex-col absolute top-[18px] left-[40px]"
-              }`}
+              className={`flex gap-2 md:flex-col`}
+              sx={{
+                position: { xs: "static", md: "relative" },
+                top: { md: "18px" },
+                left: { md: "20px" },
+              }}
             >
               {productImages.map((img, index) => (
                 <Box
@@ -150,7 +151,7 @@ const ProductDetails = () => {
                       : "border-gray-200"
                   } rounded-md overflow-hidden`}
                   onClick={() => setSelectedImage(index)}
-                  style={{
+                  sx={{
                     width: "64px",
                     height: "82px",
                     borderRadius: "4px",
@@ -169,11 +170,11 @@ const ProductDetails = () => {
             {/* Main Image */}
             <Box
               className="relative rounded-lg"
-              style={{
-                width: "477px",
-                height: "636px",
-                left: "106px",
+              sx={{
+                width: { xs: "100%", sm: "360px", md: "420px", lg: "477px" },
+                height: { xs: "auto", sm: "500px", md: "580px", lg: "636px" },
                 borderRadius: "8px",
+                marginLeft: { xs: "0", md: "0", lg: "20px" },
               }}
             >
               <StyledImage
@@ -189,56 +190,14 @@ const ProductDetails = () => {
         <Grid item xs={12} md={6}>
           <Box className="h-full flex flex-col justify-between">
             <div>
-              {/* Title */}
-              <Typography
-                variant="h4"
-                className="absolute"
-                style={{
-                  height: "56px",
-                  position: "absolute",
-                  left: "731px",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: "600",
-                  fontSize: "40px",
-                  lineHeight: "56px",
-                  color: "#775617",
-                }}
-              >
-                Luxury Charms Ring
-              </Typography>
-
-              {/* Code */}
-              <Typography
-                className="absolute"
-                style={{
-                  width: "94px",
-                  height: "26px",
-                  position: "absolute",
-                  top: "74px",
-                  left: "731px",
-                  fontFamily: "'Manrope', sans-serif",
-                  fontWeight: "400",
-                  fontSize: "16px",
-                  lineHeight: "26px",
-                  color: "#323842",
-                }}
-              >
-                Code: 78205
-              </Typography>
-
               {/* Price */}
               <Typography
                 variant="h5"
-                className="absolute"
-                style={{
-                  width: "154px",
-                  height: "56px",
-                  position: "absolute",
-                  top: "112px",
-                  left: "731px",
+                className="mt-4 md:mt-0"
+                sx={{
                   fontFamily: "'Manrope', sans-serif",
                   fontWeight: "600",
-                  fontSize: "40px",
+                  fontSize: { xs: "28px", md: "40px" },
                   lineHeight: "56px",
                   color: "#775617",
                 }}
@@ -246,29 +205,51 @@ const ProductDetails = () => {
                 $620.73
               </Typography>
 
+              {/* Title */}
+              <Typography
+                variant="h4"
+                sx={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: "600",
+                  fontSize: { xs: "28px", md: "40px" },
+                  lineHeight: "56px",
+                  color: "#775617",
+                  mt: { xs: "10px", md: "20px" },
+                }}
+              >
+                Luxury Charms Ring
+              </Typography>
+
+              {/* Code */}
+              <Typography
+                sx={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontWeight: "400",
+                  fontSize: "16px",
+                  lineHeight: "26px",
+                  color: "#323842",
+                  mt: "8px",
+                }}
+              >
+                Code: 78205
+              </Typography>
+
               {/* Color */}
               <Typography
-                className="absolute"
-                style={{
-                  height: "26px",
-                  position: "absolute",
-                  top: "180px",
-                  left: "731px",
+                sx={{
                   fontFamily: "'Manrope', sans-serif",
                   fontWeight: "700",
                   fontSize: "16px",
                   lineHeight: "26px",
                   color: "#424955",
+                  mt: "8px",
                 }}
               >
                 Color - Rose Gold
               </Typography>
 
               {/* Color Options */}
-              <Box
-                className="flex gap-2 absolute"
-                style={{ top: "210px", left: "731px" }}
-              >
+              <Box className="flex gap-2 mt-2">
                 <img
                   src={Oval1Img}
                   alt="Oval1Img"
@@ -283,43 +264,23 @@ const ProductDetails = () => {
 
               {/* Size Selection */}
               <Typography
-                className="absolute"
-                style={{
-                  height: "26px",
-                  position: "absolute",
-                  top: "258px",
-                  left: "731px",
+                sx={{
                   fontFamily: "'Manrope', sans-serif",
                   fontWeight: "700",
                   fontSize: "16px",
                   lineHeight: "26px",
                   color: "#424955",
+                  mt: "16px",
                 }}
               >
-                Size - {selectedSize}
-                <span
-                  style={{
-                    width: "100px",
-                    height: "20px",
-                    position: "absolute",
-                    top: "10px",
-                    left: "475px",
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: "500",
-                    fontSize: "12px",
-                    lineHeight: "20px",
-                    letterSpacing: "0%",
-                    textAlign: "right",
-                    color: "#424955", // Dark gray color
-                    textDecoration: "underline solid", // Underline with solid style
-                  }}
-                >
+                Size - {selectedSize}{" "}
+                <span className="underline text-sm text-gray-600 cursor-pointer">
                   What is my size?
                 </span>
               </Typography>
 
               {/* Size Selector Component */}
-              <Box className="absolute" style={{ top: "290px", left: "731px" }}>
+              <Box className="mt-2">
                 <SizeSelector
                   selectedSize={selectedSize}
                   setSelectedSize={setSelectedSize}
@@ -327,78 +288,65 @@ const ProductDetails = () => {
               </Box>
 
               {/* Quantity Selector and Add to Cart */}
-              <Box className="flex flex-col gap-4 mb-8">
+              <Box className="flex flex-col gap-4 mt-6">
                 <Box className="flex items-center gap-2">
-                  <Typography
-                    style={{
-                      width: "69px",
-                      height: "26px",
-                      position: "absolute",
-                      top: "350px",
-                      left: "731px",
-                      fontFamily: "'Manrope', sans-serif",
-                      fontWeight: 700,
-                      fontSize: "16px",
-                      lineHeight: "26px",
-                      letterSpacing: "0%",
-                      color: "#424955",
-                    }}
-                  >
+                  <Typography className="text-gray-800 font-bold">
                     Quantity:
                   </Typography>
 
                   <Box className="flex items-center">
                     <Button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="absolute top-[350px] left-[31px] w-[39px] h-[44px] text-gray-600 bg-[#F3F4F6] rounded-[4px]"
-                      sx={{
-                        backgroundColor: "#F3F4F6",
-                      }}
+                      className="w-[39px] h-[44px] text-gray-600 bg-[#F3F4F6] rounded-[4px]"
+                      sx={{ backgroundColor: "#F3F4F6" }}
                     >
                       -
                     </Button>
 
-                    <Typography className="absolute w-[38px] h-[43px] top-[383px] left-[820px] text-center bg-[#F3F4F6] rounded-[4px] flex items-center justify-center">
+                    <Typography className="w-[38px] h-[43px] text-center bg-[#F3F4F6] rounded-[4px] flex items-center justify-center">
                       {quantity}
                     </Typography>
 
                     <Button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="absolute w-[41px] h-[44px] top-[353px] left-[115px] text-gray-600 bg-[#F3F4F6] rounded-[4px] flex items-center justify-center"
+                      className="w-[41px] h-[44px] text-gray-600 bg-[#F3F4F6] rounded-[4px] flex items-center justify-center"
                       sx={{ backgroundColor: "#F3F4F6" }}
                     >
                       +
                     </Button>
                   </Box>
                 </Box>
-                <Button
-                  variant="outlined"
-                  className="absolute w-[266px] h-[52px] top-[350px] left-[31px] rounded-[20px]  border-[#0F3460] flex items-center justify-center gap-2 text-[#0F3460] font-semibold"
-                >
-                  <img src={addtoCartImg} alt="Bag Icon" className="w-6 h-6" />
-                  Add to Bag
-                </Button>
-                <Button
-                  variant="contained"
-                  className="absolute w-[266px] h-[52px] top-[282px] left-[321px] rounded-[10px] text-white font-semibold"
-                  sx={{
-                    textTransform: "none",
-                    boxShadow: "none",
-                    backgroundColor: "#0F3460",
-                  }}
-                >
-                  Buy Now
-                </Button>
+
+                {/* Add to Cart & Buy Now Buttons */}
+                <Box className="flex flex-col md:flex-row gap-4">
+                  <Button
+                    variant="outlined"
+                    className="w-full md:w-[266px] h-[52px] rounded-[20px] border-[#0F3460] flex items-center justify-center gap-2 text-[#0F3460] font-semibold"
+                  >
+                    <img
+                      src={addtoCartImg}
+                      alt="Bag Icon"
+                      className="w-6 h-6"
+                    />
+                    Add to Bag
+                  </Button>
+
+                  <Button
+                    variant="contained"
+                    className="w-full md:w-[266px] h-[52px] rounded-[10px] text-white font-semibold"
+                    sx={{
+                      textTransform: "none",
+                      boxShadow: "none",
+                      backgroundColor: "#0F3460",
+                    }}
+                  >
+                    Buy Now
+                  </Button>
+                </Box>
               </Box>
-              <Box
-                className="absolute flex flex-wrap gap-4"
-                style={{
-                  width: "556px",
-                  height: "100px",
-                  top: "510px",
-                  left: "731px",
-                }}
-              >
+
+              {/* Extra Information Dropdowns */}
+              <Box className="flex flex-wrap gap-4 mt-6">
                 {["Delivery", "Payment", "Warranty", "Care"].map(
                   (label, index) => (
                     <TextField
@@ -406,7 +354,7 @@ const ProductDetails = () => {
                       select
                       label={label}
                       variant="filled"
-                      className="w-[266px] h-[44px] bg-white"
+                      className="w-full md:w-[266px] bg-white"
                       sx={{
                         borderRadius: "4px",
                         "& .MuiOutlinedInput-root": {
@@ -464,33 +412,34 @@ const ProductDetails = () => {
         />
       </Box>
       <Typography
-        style={{
-          width: "977px",
-          height: "56px",
+        sx={{
+          width: { xs: "100%", sm: "80%", md: "900px", lg: "977px" }, // Responsive width
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 600,
-          fontSize: "40px",
+          fontSize: { xs: "24px", sm: "32px", md: "36px", lg: "40px" }, // Adjusted font size
           lineHeight: "56px",
           letterSpacing: "0%",
           color: "#775617",
-          transform: "rotate(0deg)",
-          marginLeft: "100px",
+          textAlign: { xs: "center", md: "left" }, // Center on small screens, left align on larger screens
+          margin: { xs: "0 auto", md: "0 0 0 100px" }, // Centered on mobile, left margin on md+
+          display: "block",
         }}
       >
         Exquisite Elegance and Timeless Charm
       </Typography>
+
       <Typography
-        style={{
-          width: "977px",
-          height: "84px",
+        sx={{
+          width: { xs: "100%", sm: "90%", md: "900px", lg: "977px" }, // Responsive width
           fontFamily: "'Manrope', sans-serif",
           fontWeight: 400,
-          fontSize: "18px",
-          lineHeight: "28px",
+          fontSize: { xs: "14px", sm: "16px", md: "18px" }, // Adjust font size for devices
+          lineHeight: { xs: "24px", sm: "26px", md: "28px" }, // Adjust line height
           letterSpacing: "0%",
           color: "#775617",
-          transform: "rotate(0deg)",
-          marginLeft: "100px",
+          textAlign: { xs: "center", md: "left" }, // Centered for mobile, left-aligned for tablet+
+          margin: { xs: "0 auto", md: "0 0 0 100px" }, // Centered for mobile, left margin for tablet+
+          display: "block",
         }}
       >
         Experience the perfect fusion of exquisite elegance and timeless charm,
@@ -500,35 +449,69 @@ const ProductDetails = () => {
         exudes a classic yet contemporary appeal.
       </Typography>
 
-      <div className="relative w-[855px] h-[861px]">
-        {/* Background Image */}
-        <img
-          src={THumbNailImg}
-          alt="Background Image"
-          className="absolute w-full h-full top-[26px] left-[193px] rounded-[10px] object-cover"
-        />
+      <Box
+  position="relative"
+  sx={{
+    width: "100%",
+    maxWidth: "855px",
+    height: { xs: "400px", sm: "500px", md: "700px", lg: "861px" }, // Set explicit height
+    margin: "0 auto", // Centers the container
+    overflow: "hidden", // Ensures no extra spacing issues
+  }}
+>
+  {/* Background Image */}
+  <Box
+    component="img"
+    src={THumbNailImg}
+    alt="Background Image"
+    sx={{
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: 0, // Align to top
+      left: { xs: "0%", sm: "50%", md: "50%", lg: "50%" }, // Centering logic
+      transform: { sm: "translateX(-50%)", md: "translateX(-50%)", lg: "translateX(-50%)" }, // Centers image
+      borderRadius: "10px",
+      objectFit: "cover",
+    }}
+  />
 
-        {/* Play Button (Centered) */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {/* Play Button (Correct Position) */}
-          <img
-            src={PlayButtonImg}
-            alt="Play Button"
-            className="absolute w-[70px] h-[70px] top-[350px] left-[585px] rounded-[26px]"
-          />
-        </div>
-      </div>
+  {/* Play Button (Centered) */}
+  <Box
+    position="absolute"
+    top="50%"
+    left="50%"
+    sx={{
+      transform: "translate(-50%, -50%)", // Always centered
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <Box
+      component="img"
+      src={PlayButtonImg}
+      alt="Play Button"
+      sx={{
+        width: { xs: "50px", sm: "60px", md: "70px" }, // Responsive size
+        height: { xs: "50px", sm: "60px", md: "70px" },
+        borderRadius: "26px",
+      }}
+    />
+  </Box>
+</Box>
+
 
       {/* Delivery Icons */}
       <Grid
         container
-        spacing={6} // 48px gap (Each unit = 8px)
+        spacing={4} // Adjusted spacing for better responsiveness
         justifyContent="center"
         sx={{
-          width: "1041px",
-          height: "160px",
+          width: { xs: "100%", sm: "100%", md: "90%", lg: "1041px" }, // Responsive width
+          height: "auto", // Height adjusts based on content
           marginTop: "50px",
-          marginLeft: "100px",
+          marginLeft: { xs: "0px", sm: "0px", md: "50px", lg: "100px" }, // Adjusted margin
         }}
       >
         {[
@@ -536,19 +519,24 @@ const ProductDetails = () => {
           { img: MessageImg, title: "Customer Care" },
           { img: LockImg, title: "Payment Security" },
         ].map((item, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4}>
-            {" "}
-            {/* ✅ 3 Cards in One Row */}
+          <Grid item key={index} xs={12} sm={6} md={4} lg={4}>
+            {/* ✅ Responsive Cards */}
             <Card className="h-full">
               <CardContent className="flex flex-col items-center p-4">
-                <img src={item.img} alt={item.title} />
+                <Box
+                  component="img"
+                  src={item.img}
+                  alt={item.title}
+                  sx={{ width: "50px", height: "50px" }} // Adjusted icon size
+                />
                 <Typography
                   sx={{
                     fontFamily: "Cormorant Garamond",
                     fontWeight: 700,
-                    fontSize: "24px",
-                    lineHeight: "28px",
+                    fontSize: "20px",
+                    lineHeight: "24px",
                     textAlign: "center",
+                    marginTop: "10px",
                   }}
                 >
                   {item.title}
@@ -557,12 +545,13 @@ const ProductDetails = () => {
                   sx={{
                     fontFamily: "Manrope",
                     fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "26px",
+                    fontSize: "14px",
+                    lineHeight: "22px",
                     textAlign: "center",
-                    width: "276px",
-                    height: "52px",
+                    width: "100%", // Adjusted width for responsiveness
+                    maxWidth: "276px",
                     color: "gray",
+                    marginTop: "5px",
                   }}
                 >
                   Ea esse elit anim commodo laborum pariatur nisi. Voluptate
@@ -613,9 +602,21 @@ const ProductDetails = () => {
       </Box>
 
       {/* Cards */}
-      <Grid container spacing={4} justifyContent="center">
+      <Grid
+        container
+        spacing={4}
+        justifyContent="center" // ✅ Centers items on all screens
+      >
         {category.map((category, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            key={index}
+            display="flex"
+            justifyContent="center" // ✅ Ensures center alignment for all screen sizes
+          >
             <Box
               className="relative cursor-pointer group overflow-hidden rounded-lg"
               sx={{
@@ -677,6 +678,7 @@ const ProductDetails = () => {
           </Grid>
         ))}
       </Grid>
+
       {/* Buttons Section */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
         <Button
@@ -730,7 +732,7 @@ const ProductDetails = () => {
         <Typography
           variant="h3"
           sx={{
-            width:"500px",
+            width: "500px",
             fontFamily: "Libre Bodoni",
             fontWeight: 400,
             fontSize: { xs: "32px", sm: "40px", md: "48px" },
@@ -754,7 +756,6 @@ const ProductDetails = () => {
             display: { xs: "none", sm: "none", md: "block" },
           }}
         />
-
 
         {/* Testimonial Cards */}
         <Grid container spacing={4} justifyContent="center">

@@ -143,7 +143,7 @@ export default function TestimonialCards() {
                   borderRadius: "10px",
                   boxShadow: 3,
                   width: "350px",
-                  height: "250px",
+                  height: "270px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
