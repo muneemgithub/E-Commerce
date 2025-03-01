@@ -1,3 +1,9 @@
+1/3/2025 (Muneem Ahmed)
+Details: Complete Responsive Dashboard and navbar also 
+
+28/2/2025 (Muneem Ahmed)
+Details: Responsive other pages and one page of dashboard. 
+
 27/2/2025 (Muneem Ahmed)
 Details: Homepage fully resposnive and remaining pages responsive and modification done
 

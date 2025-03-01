@@ -10,6 +10,9 @@ const revenueData = [
   { name: "Apr", profit: 22000 },
   { name: "May", profit: 19000 },
   { name: "Jun", profit: 25000 },
+  { name: "Jul", profit: 30000 },
+  { name: "Aug", profit: 35000 },
+  { name: "Sep", profit: 40000 },
 ];
 
 const RevenueBarChart = () => {

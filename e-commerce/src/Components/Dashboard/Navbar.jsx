@@ -59,26 +59,21 @@ const Navbar = ({ children }) => {
       </Box>
       <Box className="h-screen flex flex-col">
         {/* Menu List */}
-        <List
-          className="flex-grow"
-          sx={{
-            marginTop: "70px",
-          }}
-        >
+        <List className="flex-grow" sx={{ marginTop: "70px" }}>
           {menuItems.map((item, index) => (
             <ListItem key={index} disablePadding className="mb-2">
               <ListItemButton
-                className={`${
-                  item.active ? "bg-brown-700 text-white" : ""
-                } hover:bg-[#775617] hover:text-white`}
+                className={`${item.active ? "text-white" : ""}`}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#775617", // Background color on hover
+                    color: "white", // Text color on hover
+                  },
+                }}
               >
                 {/* Icon */}
                 <ListItemIcon className="min-w-[24px]">
-                  <img
-                    src={item.icon}
-                    alt={item.text}
-                    className="w-6 h-6" // 24px x 24px
-                  />
+                  <img src={item.icon} alt={item.text} className="w-6 h-6" />
                 </ListItemIcon>
 
                 {/* Text */}
@@ -99,29 +94,50 @@ const Navbar = ({ children }) => {
 
         {/* Name & Avatar - Always at Bottom */}
         <Box className="mt-auto">
-          <ListItem disablePadding className="mb-2">
-            <ListItemButton className="flex justify-between hover:bg-[#775617] hover:text-white">
-              <div className="flex items-center space-x-20">
-                <ListItemText
-                  primary="Name"
-                  primaryTypographyProps={{
-                    fontFamily: "Montserrat",
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    lineHeight: "24px",
-                    letterSpacing: "0%",
-                  }}
-                />
-                <ListItemIcon className="min-w-[24px]">
-                  <img src={AvatarImg} alt="AvatarImg" className="w-6 h-6" />
-                </ListItemIcon>
-              </div>
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton
+            className="flex justify-between"
+            sx={{
+              "&:hover": {
+                backgroundColor: "#775617", 
+                color: "white", 
+                "& .MuiListItemText-primary": {
+                  color: "white", 
+                },
+              },
+            }}
+          >
+            <div className="flex items-center space-x-20">
+              <ListItemText
+                primary="Name"
+                primaryTypographyProps={{
+                  fontFamily: "Montserrat",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "24px",
+                  letterSpacing: "0%",
+                  ml: { lg: "8px" },
+                }}
+              />
+              <ListItemIcon className="min-w-[24px]">
+                <img src={AvatarImg} alt="AvatarImg" className="w-6 h-6" />
+              </ListItemIcon>
+            </div>
+          </ListItemButton>
 
           {/* Logout Button */}
           <ListItem disablePadding>
-            <ListItemButton className="flex justify-between hover:bg-[#775617] hover:text-white">
+          <ListItemButton
+            className="flex justify-between"
+            sx={{
+              "&:hover": {
+                backgroundColor: "#775617", 
+                color: "white", 
+                "& .MuiListItemText-primary": {
+                  color: "white", 
+                },
+              },
+            }}
+          >
               <div className="flex items-center space-x-20">
                 <ListItemText
                   primary="Logout"
@@ -149,18 +165,16 @@ const Navbar = ({ children }) => {
       {/* Sidebar */}
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}
       >
-        {/* Mobile drawer */}
+        {/* Mobile & Tablet drawer (Toggle Button se Open Hoga) */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", sm: "block", md: "block", lg: "none" }, // Mobile & Tablet ke liye
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -169,11 +183,12 @@ const Navbar = ({ children }) => {
         >
           {drawer}
         </Drawer>
-        {/* Desktop drawer */}
+
+        {/* Laptop & Large Screens ke liye Permanent Sidebar */}
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            display: { xs: "none", sm: "none", md: "none", lg: "block" }, // Sirf Laptop aur Large screens ke liye
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -190,7 +205,7 @@ const Navbar = ({ children }) => {
       <Box
         component="main"
         className="flex-grow"
-        sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ width: { lg: `calc(100% - ${drawerWidth} px)` } }}
       >
         {/* Header */}
         <AppBar
@@ -200,48 +215,54 @@ const Navbar = ({ children }) => {
             width: { xs: "100%", lg: "1184px" }, // Mobile: Full Width, Laptop/Desktop: 1184px
             height: "68px",
             top: "-1px",
-            left: { lg: "256px", xs: "0px" }, // Desktop ke liye left shift, mobile per centered
-            maxWidth: "100%", // Ensure it doesn’t overflow
-            margin: "auto", // Center it on larger screens
+            background: "#070B1D",
+            left: { lg: "256px", xs: "0px" }, // Desktop ke liye left shift, mobile pe centered
+            maxWidth: "100%",
+            margin: "auto",
           }}
         >
           <Toolbar>
-            {/* Menu Icon (Only for small screens) */}
+            {/* Menu Icon (Only for mobile & tablet screens) */}
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
+              sx={{ mr: 2, display: { lg: "none" } }} // Sirf mobile & tablet screens ke liye
             >
               <MenuIcon className="text-white" />
             </IconButton>
 
             {/* Search Bar */}
-            <Box className="flex-grow flex items-center  rounded-lg px-4 py-2">
+            <Box className="flex-grow flex items-center rounded-lg px-4 py-2">
               <SearchIcon className="text-white mr-2" />
               <InputBase
                 placeholder="Search..."
-                className="flex-grow text-white placeholder-white"
+                sx={{
+                  color: "white",
+                  "&::placeholder": {
+                    color: "white",
+                    opacity: 1,
+                  },
+                }}
               />
             </Box>
 
             {/* Notifications */}
             <img
-                src={NotificationImg}
-                alt="Notification"
-                style={{ width: "28px", height: "28px" }}
-              />
+              src={NotificationImg}
+              alt="Notification"
+              style={{ width: "28px", height: "28px" }}
+            />
             <img src={ChatImg} alt="ChatImg" />
+
             {/* Avatar & Name */}
-            <Box className="ml-4 flex items-center">
-              <Avatar className="bg-gray-600">T</Avatar>
+            <Box className="ml-4 flex items-center lg:mr-16">
+              <Avatar className="!bg-[#775617] mr-2">T</Avatar>
               <Typography className="ml-2 text-white">Tooba</Typography>
             </Box>
           </Toolbar>
         </AppBar>
-
-       
       </Box>
     </Box>
   );
