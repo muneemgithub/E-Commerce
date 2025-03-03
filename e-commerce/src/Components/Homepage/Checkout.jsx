@@ -49,17 +49,17 @@ const Checkout = () => {
           mx: "auto",
         }}
       >
-         <img
-  src={bgimg}
-  alt="bgimg"
-  style={{
-    width: "913px",
-    height: "358px",
-    position: "absolute",
-    top: "113px",
-    objectFit: "cover",
-  }}
-/>
+        <img
+          src={bgimg}
+          alt="bgimg"
+          style={{
+            width: "913px",
+            height: "358px",
+            position: "absolute",
+            top: "113px",
+            objectFit: "cover",
+          }}
+        />
         <Container
           maxWidth="lg"
           sx={{
@@ -119,7 +119,7 @@ const Checkout = () => {
               lineHeight: "58px",
               color: "#775617",
               width: "100%",
-            maxWidth: "100%",
+              maxWidth: "100%",
               height: "60px",
             }}
           >

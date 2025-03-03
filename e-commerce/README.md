@@ -1,3 +1,6 @@
+3/3/2025 (Muneem Ahmed)
+Details: Complete responsive and UI and also slidebar added
+
 1/3/2025 (Muneem Ahmed)
 Details: Complete Responsive Dashboard and navbar also 
 
