@@ -17,6 +17,7 @@ import UncompromisingImg from "../../Assests/Uncompromising.png";
 import EthicalImg from "../../Assests/Ethical.png";
 import CustomerImg from "../../Assests/Customer.png";
 import cardLine from "../../Assests/herosection line.png";
+import bgimg from "../../Assests/Rectangle 2394.png";
 
 const AboutUs = () => {
   return (
@@ -35,22 +36,50 @@ const AboutUs = () => {
         <Box className="absolute inset-0 bg-[#0F3460C9]"></Box>
 
         <Container maxWidth="lg" className="relative z-10">
+          <img
+            src={bgimg}
+            alt="bgimg"
+            style={{
+              width: "100%",
+              height: "auto",
+              maxHeight: "458px",
+              position: "absolute",
+              top: "-109px",
+              objectFit: "cover",
+            }}
+          />
+
           <Box className="max-w-2xl text-center mx-auto">
             {/* Heading */}
-            <Typography
-              variant="h2"
-              className="font-['Libre_Bodoni'] font-medium text-[32px] sm:text-[48px] lg:text-[64px] leading-[40px] sm:leading-[60px] lg:leading-[80px] tracking-normal"
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", lg: "column" }, // ✅ LG pe bhi neeche rahe
+                alignItems: { xs: "center", lg: "flex-start" }, // ✅ Mobile pe center, LG pe left
+              }}
             >
-              Crafting Elegance One Piece at a Time
-            </Typography>
+              {/* Text */}
+              <Typography
+                variant="h2"
+                className="font-['Libre_Bodoni'] font-medium text-[32px] sm:text-[48px] lg:text-[64px] leading-[40px] sm:leading-[60px] lg:leading-[80px] tracking-normal"
+                sx={{
+                  ml: { lg: "-220px" },
+                  maxWidth: { xs: "100%", sm: "80%", md: "60%", lg: "80%" },
+                  wordWrap: "break-word",
+                  textAlign: { xs: "center", lg: "left" }, 
+                }}
+              >
+                Crafting Elegance One Piece at a Time
+              </Typography>
 
-            {/* Image */}
-            <Box className="flex justify-center my-2">
-              <img
-                src={heroline}
-                alt="heroline"
-                className="w-1/2 sm:w-1/3 lg:w-[300px]"
-              />
+              {/* Image */}
+              <Box className="flex justify-center my-2">
+                <img
+                  src={heroline}
+                  alt="heroline"
+                  className="w-1/2 sm:w-1/3 lg:w-[300px]"
+                />
+              </Box>
             </Box>
 
             {/* Subtitle */}

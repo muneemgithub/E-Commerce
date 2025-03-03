@@ -4,12 +4,12 @@ import HeroSectionImg from "../../Assests/HeroSectionImg.png";
 import LineOne from "../../Assests/Line_1.png";
 import RectangleImg from "../../Assests/Rectangle 3.png";
 import LineThree from "../../Assests/Line3.png";
-// import HeroBg from "../../Assests/Line3.png";
-import { useTheme, useMediaQuery } from '@mui/material';
+import bgimg from "../../Assests/Rectangle 2394.png";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 function HeroSection() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>
@@ -24,10 +24,9 @@ function HeroSection() {
             flexDirection: "column",
             alignItems: "center",
             color: "white",
-  
           }}
         >
-          <Box sx={{  width: '100%', mb: 4 }}>
+          <Box sx={{ width: "100%", mb: 4 }}>
             <img
               src={HeroSectionImg}
               alt="Luxury Jewelry"
@@ -52,7 +51,7 @@ function HeroSection() {
             >
               Women's Collection
             </Typography>
-            
+
             <img
               src={LineOne}
               alt="LineOne"
@@ -104,7 +103,7 @@ function HeroSection() {
           }}
         >
           {/* Left Side Images */}
-          <Box sx={{ position: 'relative', width: '50%', height: '100%' }}>
+          <Box sx={{ position: "relative", width: "50%", height: "100%" }}>
             <img
               src={HeroSectionImg}
               alt="Luxury Jewelry"
@@ -117,7 +116,18 @@ function HeroSection() {
                 borderRadius: "0 0 50px 50px",
               }}
             />
-            
+            <img
+              src={bgimg}
+              alt="bgimg"
+              style={{
+                width: "100%",
+                height: "458px",
+                position: "absolute",
+                top: "109px",
+                left: "415px",
+              }}
+            />
+
             <img
               src={RectangleImg}
               alt="RectangleImg"
@@ -130,7 +140,7 @@ function HeroSection() {
                 borderRadius: "40px",
               }}
             />
-            
+
             <img
               src={LineThree}
               alt="LineThree"
@@ -142,7 +152,7 @@ function HeroSection() {
                 left: "200px",
               }}
             />
-            
+
             <img
               src={LineThree}
               alt="LineThree"
@@ -158,7 +168,7 @@ function HeroSection() {
           </Box>
 
           {/* Right Side Content */}
-          <Box sx={{ width: '50%', pl: 4 }}>
+          <Box sx={{ width: "50%", pl: 4 }}>
             <Box sx={{ textAlign: "center", mb: 4 }}>
               <Typography
                 variant="h4"
@@ -166,20 +176,30 @@ function HeroSection() {
                   fontFamily: "Cookie, cursive",
                   fontSize: "2rem",
                   mb: 2,
+                  ml: 20,
                 }}
               >
                 Women's Collection
               </Typography>
-              <img src={LineOne} alt="LineOne" style={{ width: "217px" }} />
+              <img
+                src={LineOne}
+                alt="LineOne"
+                style={{
+                  width: "217px",
+                  display: "block",
+                  marginLeft: "270px",
+                }}
+              />
             </Box>
 
             <Typography
               variant="h2"
               sx={{
                 fontFamily: "Cookie",
-                fontSize: "3rem",
+                fontSize: "2rem",
                 lineHeight: 1.2,
                 mb: 4,
+                ml:-26,
               }}
             >
               Experience Luxury, Wear Confidence.
@@ -191,7 +211,8 @@ function HeroSection() {
                 fontFamily: "Libre Bodoni, serif",
                 fontSize: "1.25rem",
                 lineHeight: 1.5,
-                maxWidth: "444px",
+                maxWidth: "360px",
+                
               }}
             >
               Every Piece Tells a Story – Elevate Your Style with Handcrafted
@@ -203,6 +224,5 @@ function HeroSection() {
     </>
   );
 }
-  
 
 export default HeroSection;

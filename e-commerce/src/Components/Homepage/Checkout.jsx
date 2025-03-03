@@ -20,6 +20,7 @@ import lineOne from "../../Assests/Cardheadingline.png";
 import DelivertImg from "../../Assests/Delivery time 3.png";
 import MessageImg from "../../Assests/Love message 3.png";
 import LockImg from "../../Assests/Lock landscape 3.png";
+import bgimg from "../../Assests/Rectangle 2394.png";
 
 const Checkout = () => {
   const orderSummary = {
@@ -48,6 +49,17 @@ const Checkout = () => {
           mx: "auto",
         }}
       >
+         <img
+  src={bgimg}
+  alt="bgimg"
+  style={{
+    width: "913px",
+    height: "358px",
+    position: "absolute",
+    top: "113px",
+    objectFit: "cover",
+  }}
+/>
         <Container
           maxWidth="lg"
           sx={{

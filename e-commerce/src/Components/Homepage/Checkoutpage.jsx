@@ -28,6 +28,8 @@ import VisaImg from "../../Assests/business_15801076-removebg-preview.png";
 import GoogleImg from "../../Assests/google_13170545-removebg-preview.png";
 import GooglePayImg from "../../Assests/money (1).png";
 import CreditPayImg from "../../Assests/credit-card.png";
+import bgimg from "../../Assests/Rectangle 2394.png";
+
 
 const Checkoutpage = () => {
   const orderSummary = {
@@ -56,6 +58,17 @@ const Checkoutpage = () => {
           mx: "auto",
         }}
       >
+         <img
+  src={bgimg}
+  alt="bgimg"
+  style={{
+    width: "913px",
+    height: "358px",
+    position: "absolute",
+    top: "113px",
+    objectFit: "cover",
+  }}
+/>
         <Container
           maxWidth="lg"
           sx={{

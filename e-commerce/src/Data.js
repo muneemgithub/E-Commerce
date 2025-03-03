@@ -11,7 +11,8 @@ import GoldPearlImg from "./Assests/GoldPearl.png"
 import RubyBanglesImg from "./Assests/gb002_1m-removebg-preview 1 (3).png"
 import BloomwearBanglesImg from "./Assests/Bloomwear.png"
 
-export const categories = ["all", "goldJewellery", "diamondJewellery", "bridalJewellery", "kidsJewellery"];
+export const categories = ["all", "gold", "diamond", "bridal", "kids"];
+
 
 export const jewelleryData = [
   // Gold Jewellery (9 Items)

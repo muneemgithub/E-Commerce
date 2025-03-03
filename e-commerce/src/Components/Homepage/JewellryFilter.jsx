@@ -11,7 +11,7 @@ export default function JewelleryFilter() {
 
   let filteredJewellery =
     selectedCategory === "all"
-      ? jewelleryData.filter((item) => item.category === "gold").slice(0, 9)
+      ? jewelleryData.slice(0, 9)
       : jewelleryData.filter((item) => item.category === selectedCategory);
 
   if (showAll) {
